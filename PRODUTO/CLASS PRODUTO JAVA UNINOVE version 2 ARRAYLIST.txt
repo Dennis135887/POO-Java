@@ -1,0 +1,28 @@
+class Produto{
+    private int codigo_barras;
+    private String descricao;
+    private double preco;
+    private static int totalProdutos;
+    
+    Produto(int codigo_barras, String descricao, double preco){
+    this.codigo_barras = codigo_barras;
+    this.descricao = descricao;
+    this.preco = preco;
+     totalProdutos++;
+    }
+    
+    public int getCodigo_barras() { return codigo_barras; }
+    public String getDescricao() { return descricao; }
+    public double getPreco() { return preco; }
+
+    public static int getTotalProdutos() {
+        return totalProdutos;
+    }
+
+    @Override
+    public String toString() {
+        return "Código de barras: " + codigo_barras +
+               "\nDescrição: " + descricao +
+               "\nPreço: " + preco;
+    }
+}
