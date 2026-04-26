@@ -1,0 +1,26 @@
+import java.time.LocalDate;
+
+class Disciplina{
+    
+    private int id;
+    private String nome;
+    
+    public Disciplina(int id, String nome){
+        this.id = id;
+        this.nome = nome;
+    
+    }
+    
+    public String getNome() { 
+        return nome;
+    }
+    
+    public void abrirTurma(){
+        System.out.println("Turma 15 - VG");
+    }
+    
+    @Override
+    public String toString(){
+      return "\nId: " + id +" | " + nome;
+    }
+}

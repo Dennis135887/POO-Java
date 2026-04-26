@@ -1,0 +1,21 @@
+import java.time.LocalDate;
+
+// Classe principal
+public class Main {
+    public static void main(String[] args) {
+
+        // Criando objetos
+        Aluno a1 = new Aluno(1,"Antonio");
+        Disciplina d1 = new Disciplina(2,"Modelagem e Desenv. OO");
+        Matricula m1 = new Matricula(LocalDate.of(1990,01,02),"Aprovado",7,10);
+        
+        System.out.println(a1);
+        System.out.println(d1);
+         d1.abrirTurma();
+        System.out.println(m1);
+        
+        a1.matricular();
+       
+        
+    }
+}

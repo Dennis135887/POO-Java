@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.time.LocalDate;
+
+
+
+        // 4. CLASSE PRINCIPAL (Onde as listas devem morar)
+public class Main {
+    public static void main(String[] args) {
+        // Criando as listas aqui na Main
+        List<Aluno> listaAlunos = new ArrayList<>();
+        List<Disciplina> listaDisciplinas = new ArrayList<>();
+        List<Matricula> listaMatriculas = new ArrayList<>();
+
+        // 1. Criar e adicionar Aluno
+        Aluno a1 = new Aluno(1, "Dennis");
+        listaAlunos.add(a1);
+
+        // 2. Criar e adicionar Disciplina
+        Disciplina d1 = new Disciplina(2, "Modelagem e Desenv. OO");
+        listaDisciplinas.add(d1);
+
+        // 3. Criar e adicionar Matrícula (usando a1 e d1 que criamos acima)
+        Matricula m1 = new Matricula(LocalDate.of(2026, 4, 15), "Aprovado", 7.0, 10.0, a1, d1);
+        listaMatriculas.add(m1);
+
+        // Exibindo os dados da lista
+        System.out.println("--- LISTA DE ALUNOS ---");
+        for (Aluno a : listaAlunos) {
+            System.out.println(a);
+        }
+
+        System.out.println("\n--- DETALHES DA MATRÍCULA ---");
+        for (Matricula m : listaMatriculas) {
+            System.out.println(m);
+        }
+    
+        
+    }
+}

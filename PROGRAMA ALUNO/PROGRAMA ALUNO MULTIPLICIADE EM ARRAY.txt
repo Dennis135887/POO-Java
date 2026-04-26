@@ -1,0 +1,98 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.time.LocalDate;
+
+// Classe Aluno
+class Aluno {
+    private int id;
+    private String nome;
+    // LISTA: O aluno agora guarda suas próprias matrículas
+    private List<Matricula> minhasMatriculas;
+
+    public Aluno(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+        this.minhasMatriculas = new ArrayList<>();
+    }
+
+    // Método matricular agora recebe os dados e adiciona na lista
+    public void matricular(Disciplina disciplina, double av1, double av2) {
+        Matricula novaM = new Matricula(LocalDate.now(), "Ativo", av1, av2, this, disciplina);
+        minhasMatriculas.add(novaM);
+        System.out.println("Sucesso: " + nome + " matriculado em " + disciplina.getNome());
+    }
+
+    public void exibirHistorico() {
+        System.out.println("\n--- Histórico do Aluno: " + nome + " ---");
+        for (Matricula m : minhasMatriculas) {
+            System.out.println(m);
+        }
+    }
+
+    public String getNome() { return nome; }
+}
+
+// Classe Disciplina
+class Disciplina {
+    private int id;
+    private String nome;
+
+    public Disciplina(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+
+    public String getNome() { return nome; }
+    
+    @Override
+    public String toString() { return nome; }
+}
+
+// Classe Matricula
+class Matricula {
+    private LocalDate dataMatricula;
+    private String status;
+    private double av1, av2;
+    private Aluno aluno;
+    private Disciplina disciplina;
+
+    public Matricula(LocalDate data, String status, double av1, double av2, Aluno aluno, Disciplina disciplina) {
+        this.dataMatricula = data;
+        this.status = status;
+        this.av1 = av1;
+        this.av2 = av2;
+        this.aluno = aluno;
+        this.disciplina = disciplina;
+    }
+
+    public double calcularMedia() {
+        return (av1 + av2) / 2;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Disciplina: %s | Média: %.2f | Status: %s", 
+                              disciplina, calcularMedia(), status);
+    }
+}
+
+// Classe Main
+public class Main {
+    public static void main(String[] args) {
+        // 1. Criando o aluno
+        Aluno dennis = new Aluno(1, "Dennis");
+
+        // 2. Criando várias disciplinas
+        Disciplina d1 = new Disciplina(101, "Modelagem OO");
+        Disciplina d2 = new Disciplina(102, "Estrutura de Dados");
+        Disciplina d3 = new Disciplina(103, "Banco de Dados");
+
+        // 3. Fazendo várias matrículas (Alimentando o ArrayList)
+        dennis.matricular(d1, 8.5, 9.0);
+        dennis.matricular(d2, 7.0, 6.5);
+        dennis.matricular(d3, 10.0, 9.5);
+
+        // 4. Exibindo o resultado da lista
+        dennis.exibirHistorico();
+    }
+}
