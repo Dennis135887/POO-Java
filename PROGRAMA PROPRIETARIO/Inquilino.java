@@ -37,7 +37,7 @@ class Inquilino {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
-        System.out.println("Dados atualizados com sucesso para: " + nome);
+        System.out.println("\nNome: " + nome + "\nCPF: " + cpf + "\nTEL: " + telefone);
     }
     
     @Override
