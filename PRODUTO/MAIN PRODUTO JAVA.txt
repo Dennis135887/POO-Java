@@ -1,0 +1,19 @@
+
+public class Main
+{
+	public static void main(String[] args) {
+	    
+	    Produto p1 = new Produto(20001,"banana nanica",1.47);
+	    Produto p2 = new Produto(20002,"maça argentina",6.47);
+	    Produto p3 = new Produto(20003,"leite desnatado",3.47);
+	    Produto p4 = new Produto(20004,"arroz integral",9.47);
+	    
+	    p1.exibir();
+	    p2.exibir();
+	    p3.exibir();
+	    p4.exibir();
+	    
+	    
+	
+	}
+}
